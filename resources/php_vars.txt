@@ -1,0 +1,320 @@
+-----------------------------------------------------------
+action=results
+-----------------------------------------------------------
+
+
+-----------------------------------------------------------
+binds[:term]=2130
+-----------------------------------------------------------
+<select name = "binds[:term]" id = "term_dropdown" style="width:100%">
+  <option value = "2130" selected="selected">2013 Winter Quarter</option>
+  <option value = "2128" >2012 Fall Quarter</option>
+  <option value = "2124" >2012 Summer Quarter</option>
+  <option value = "2122" >2012 Spring Quarter</option>
+  <option value = "2120" >2012 Winter Quarter</option>
+  <option value = "2118" >2011 Fall Quarter</option>
+  <option value = "2114" >2011 Summer Quarter</option>
+  <option value = "2112" >2011 Spring Quarter</option>
+  <option value = "2110" >2011 Winter Quarter</option>
+  <option value = "2108" >2010 Fall Quarter</option>
+  <option value = "2104" >2010 Summer Quarter</option>
+  <option value = "2102" >2010 Spring Quarter</option>
+  <option value = "2100" >2010 Winter Quarter</option>
+  <option value = "2098" >2009 Fall Quarter</option>
+  <option value = "2094" >2009 Summer Quarter</option>
+  <option value = "2092" >2009 Spring Quarter</option>
+  <option value = "2090" >2009 Winter Quarter</option>
+  <option value = "2088" >2008 Fall Quarter</option>
+  <option value = "2084" >2008 Summer Quarter</option>
+  <option value = "2082" >2008 Spring Quarter</option>
+  <option value = "2080" >2008 Winter Quarter</option>
+  <option value = "2078" >2007 Fall Quarter</option>
+  <option value = "2074" >2007 Summer Quarter</option>
+  <option value = "2072" >2007 Spring Quarter</option>
+  <option value = "2070" >2007 Winter Quarter</option>
+  <option value = "2068" >2006 Fall Quarter</option>
+  <option value = "2064" >2006 Summer Quarter</option>
+  <option value = "2062" >2006 Spring Quarter</option>
+  <option value = "2060" >2006 Winter Quarter</option>
+  <option value = "2058" >2005 Fall Quarter</option>
+  <option value = "2054" >2005 Summer Quarter</option>
+  <option value = "2052" >2005 Spring Quarter</option>
+  <option value = "2050" >2005 Winter Quarter</option>
+  <option value = "2048" >2004 Fall Quarter</option>
+</select>
+
+<select name = "binds[:session_code]" id = "Session" style="width:100%">
+  <option value = "" selected="selected">All Sessions</option>
+  <option value = "ED1">Education Masters, Fifth Qtr</option>
+  <option value = "ED2">Education Masters, First Qtr</option>
+  <option value = "5S1">Summer Session 1 (5 Weeks)</option>
+  <option value = "S10">Summer Session 10 Weeks</option>
+  <option value = "5S2">Summer Session 2 (5 Weeks)</option>
+  <option value = "S7W">Summer Session 7 Weeks</option>
+  <option value = "S8W">Summer Session 8 Weeks</option>	 
+</select>
+
+-----------------------------------------------------------
+binds[:reg_status]=all
+-----------------------------------------------------------
+<select name = "binds[:reg_status]" id="reg_status" style="width:100%">
+  <option value = "O">Open Classes</option>
+  <option value = "all">All Classes</option>
+</select>
+
+
+-----------------------------------------------------------
+binds[:subject]=CHIN
+-----------------------------------------------------------
+<select name = "binds[:subject]" id = "subject" style="width:100%">
+  <option value = ""  selected="selected">&nbsp;</option>
+  <option value = "" >All Subjects</option>
+  <option value = "AMST">American Studies</option>
+  <option value = "ANTH">Anthropology</option>
+  <option value = "AMS">Applied Math and Statistics</option>
+  <option value = "ARAB">Arabic</option>
+  <option value = "ART">Art</option>
+  <option value = "ASTR">Astronomy and Astrophysics</option>
+  <option value = "BIOC">Biochemistry and Molecular Bio</option>
+  <option value = "BIOL">Biology: Molecular Cell & Dev</option>
+  <option value = "BIOE">Biology:Ecology & Evolutionary</option>
+  <option value = "BME">Biomolecular Engineering</option>
+  <option value = "CHEM">Chemistry and Biochemistry</option>
+  <option value = "CHIN">Chinese</option>
+  <option value = "CLEI">College Eight</option>
+  <option value = "CLNI">College Nine</option>
+  <option value = "CLTE">College Ten</option>
+  <option value = "CMMU">Community Studies</option>
+  <option value = "CMPE">Computer Engineering</option>
+  <option value = "CMPS">Computer Science</option>
+  <option value = "COWL">Cowell College</option>
+  <option value = "LTCR">Creative Writing</option>
+  <option value = "CRWN">Crown College</option>
+  <option value = "DANM">Digital Arts and New Media</option>
+  <option value = "EART">Earth Sciences</option>
+  <option value = "ECON">Economics</option>
+  <option value = "EDUC">Education</option>
+  <option value = "EE">Electrical Engineering</option>
+  <option value = "ENGR">Engineering</option>
+  <option value = "LTEL">English-Language Literatures</option>
+  <option value = "ENVS">Environmental Studies</option>
+  <option value = "ETOX">Environmental Toxicology</option>
+  <option value = "FMST">Feminist Studies</option>
+  <option value = "FILM">Film and Digital Media</option>
+  <option value = "FREN">French</option>
+  <option value = "LTFR">French Literature</option>
+  <option value = "GERM">German</option>
+  <option value = "LTGE">German Literature</option>
+  <option value = "GREE">Greek</option>
+  <option value = "LTGR">Greek Literature</option>
+  <option value = "HEBR">Hebrew</option>
+  <option value = "HNDI">Hindi</option>
+  <option value = "HIS">History</option>
+  <option value = "HAVC">History of Art&Visual Culture</option>
+  <option value = "HISC">History of Consciousness</option>
+  <option value = "HUMN">Humanities</option>
+  <option value = "ISM">Information Systems Management</option>
+  <option value = "ITAL">Italian</option>
+  <option value = "LTIT">Italian Literature</option>
+  <option value = "JAPN">Japanese</option>
+  <option value = "JWST">Jewish Studies</option>
+  <option value = "KRSG">Kresge College</option>
+  <option value = "LAAD">Languages</option>
+  <option value = "LATN">Latin</option>
+  <option value = "LALS">Latin American&Latino Studies</option>
+  <option value = "LTIN">Latin Literature</option>
+  <option value = "LGST">Legal Studies</option>
+  <option value = "LING">Linguistics</option>
+  <option value = "LIT">Literature</option>
+  <option value = "MATH">Mathematics</option>
+  <option value = "MERR">Merrill College</option>
+  <option value = "METX">Microbiol & Environ Toxicology</option>
+  <option value = "LTMO">Modern Literary Studies</option>
+  <option value = "MUSC">Music</option>
+  <option value = "OAKS">Oakes College</option>
+  <option value = "OCEA">Ocean Sciences</option>
+  <option value = "PHIL">Philosophy</option>
+  <option value = "PHYE">Physical Education</option>
+  <option value = "PHYS">Physics</option>
+  <option value = "POLI">Politics</option>
+  <option value = "PRTR">Porter College</option>
+  <option value = "PORT">Portuguese</option>
+  <option value = "LTPR">Pre & Early Modern Literature</option>
+  <option value = "PSYC">Psychology</option>
+  <option value = "PUNJ">Punjabi</option>
+  <option value = "RUSS">Russian</option>
+  <option value = "SCIC">Science Communication</option>
+  <option value = "SOCD">Social Documentation</option>
+  <option value = "SOCS">Social Sciences</option>
+  <option value = "SOCY">Sociology</option>
+  <option value = "SPAN">Spanish</option>
+  <option value = "SPHS">Spanish for Heritage Speakers</option>
+  <option value = "SPSS">Spanish for Spanish Speakers</option>
+  <option value = "LTSP">Spanish/Latin Amer/Latino Lit</option>
+  <option value = "STEV">Stevenson College</option>
+  <option value = "TIM">Technology & Info Management</option>
+  <option value = "THEA">Theater Arts</option>
+  <option value = "WMST">Women's Studies</option>
+  <option value = "LTWL">World Lit & Cultural Studies</option>
+  <option value = "WRIT">Writing</option>
+  <option value = "YIDD">Yiddish</option>	
+</select>
+
+
+-----------------------------------------------------------
+binds[:catalog_nbr_op]= (is exactly)
+-----------------------------------------------------------
+<select name = "binds[:catalog_nbr_op]">
+  <option value ="=">is exactly</option>
+  <option value ="contains">contains</option>
+  <option value ="<=">less than or equal to</option>
+  <option value =">=">greater than or equal to</option>
+</select>
+
+
+-----------------------------------------------------------
+binds[:catalog_nbr]=
+-----------------------------------------------------------
+<input type = "text" maxlength = "5" name = "binds[:catalog_nbr]" id = "catalog_nbr" value = "" style="width:185px"/>
+
+
+-----------------------------------------------------------
+binds[:title]=
+-----------------------------------------------------------
+<input type = "text" maxlength = "50" name = "binds[:title]" id="title" value = "" style="width:350px;"/>
+
+
+-----------------------------------------------------------
+binds[:instr_name_op]= (is exactly)
+-----------------------------------------------------------
+<select name = "binds[:instr_name_op]">
+  <option value ="=">is exactly</option>
+  <option value ="contains">contains</option>
+  <option value ="begins">begins with</option>
+</select>
+
+
+-----------------------------------------------------------
+binds[:instructor]=
+-----------------------------------------------------------
+<input type = "text" maxlength = "50" name = "binds[:instructor]" id="instructor" value = "" style="width:250px"/>
+
+
+-----------------------------------------------------------
+binds[:ge]=
+-----------------------------------------------------------
+<select name = "binds[:ge]" id="ge" style="width:100%">
+  <option value="">&nbsp;</option>
+  <option value = "A">A</option>
+  <option value = "C">C</option>
+  <option value = "C1">C1</option>
+  <option value = "C2">C2</option>
+  <option value = "CC">CC</option>
+  <option value = "E">E</option>
+  <option value = "ER">ER</option>
+  <option value = "IH">IH</option>
+  <option value = "IM">IM</option>
+  <option value = "IN">IN</option>
+  <option value = "IS">IS</option>
+  <option value = "MF">MF</option>
+  <option value = "PE-E">PE-E</option>
+  <option value = "PE-H">PE-H</option>
+  <option value = "PE-T">PE-T</option>
+  <option value = "PR-C">PR-C</option>
+  <option value = "PR-E">PR-E</option>
+  <option value = "PR-S">PR-S</option>
+  <option value = "Q">Q</option>
+  <option value = "SI">SI</option>
+  <option value = "SR">SR</option>
+  <option value = "TA">TA</option>
+  <option value = "TH">TH</option>
+  <option value = "TN">TN</option>
+  <option value = "TS">TS</option>
+  <option value = "W">W</option>
+  <option value = "AnyGE">Any Requirement</option>
+</select>
+
+
+-----------------------------------------------------------
+binds[:crse_units_op]= (is exactly)
+-----------------------------------------------------------
+<select name = "binds[:crse_units_op]" id="crse_units_op">
+  <option value ="=">is exactly</option>
+  <option value ="between">between</option>
+</select>
+
+
+-----------------------------------------------------------
+binds[:crse_units_from]=
+-----------------------------------------------------------
+<input type = "text" maxlength = "2" name = "binds[:crse_units_from]" id="crse_units_from" value = "" style="width:112px"/>
+
+
+-----------------------------------------------------------
+binds[:crse_units_to]=
+-----------------------------------------------------------
+<input type = "text" maxlength = "50" name = "binds[:crse_units_to]" id="crse_units_to" value = "" style="width:112px"/>
+
+
+-----------------------------------------------------------
+binds[:crse_units_exact]=
+-----------------------------------------------------------
+<input type = "text" maxlength = "2" name = "binds[:crse_units_exact]" id="crse_units_exact" value = "" style="width:112px"/>
+
+
+-----------------------------------------------------------
+binds[:days]=
+-----------------------------------------------------------
+<select name = "binds[:days]" id = "Days" style="width:100%">
+  <option value="">&nbsp;</option>
+  <option value="">All Days</option>
+  <option value = "MTWR">MTuWTh</option>
+  <option value = "MTWRF">MTuWThF</option>
+  <option value = "MWF">MWF</option>
+  <option value = "MW">MW</option>
+  <option value = "TWR">TuWTh</option>
+  <option value = "TR">TuTh</option>
+  <option value = "M">M</option>
+  <option value = "T">T</option>
+  <option value = "W">W</option>
+  <option value = "R">Th</option>
+  <option value = "F">F</option>
+</select>
+
+
+-----------------------------------------------------------
+binds[:times]=
+-----------------------------------------------------------
+<select name = "binds[:times]" id = "Times" style="width:100%">
+  <option value="">&nbsp;</option>
+  <option value="">All Times</option>
+  <option value = "Morning">Morning</option><option value = "Afternoon">Afternoon</option>
+  <option value = "Evening">Evening</option>
+  <option value = "08:00AM09:10AM">0800AM - 0910AM</option>
+  <option value = "08:00AM09:45AM">0800AM - 0945AM</option>
+  <option value = "09:30AM10:40AM">0930AM - 1040AM</option>
+  <option value = "10:00AM11:45AM">1000AM - 1145AM</option>
+  <option value = "11:00AM12:10PM">1100AM - 1210PM</option>
+  <option value = "12:00PM01:45PM">1200PM - 0145PM</option>
+  <option value = "12:30PM01:40PM">1230PM - 0140PM</option>
+  <option value = "02:00PM03:10PM">0200PM - 0310PM</option>
+  <option value = "02:00PM03:45PM">0200PM - 0345PM</option>
+  <option value = "03:30PM04:40PM">0330PM - 0440PM</option>
+  <option value = "04:00PM05:45PM">0400PM - 05:45PM</option>
+  <option value = "05:00PM06:45PM">0500PM - 06:45PM</option>
+  <option value = "06:00PM07:45PM">0600PM - 07:45PM</option>
+  <option value = "07:00PM08:45PM">0700PM - 08:45PM</option>
+  <option value = "08:00PM09:45PM">0800PM - 09:45PM</option>
+</select>
+
+
+-----------------------------------------------------------
+binds[:acad_career]=
+-----------------------------------------------------------
+<select name = "binds[:acad_career]" id="acad_career" style="width:100%">
+  <option value = ""  selected="selected">&nbsp;</option>
+  <option value = "" >Any</option>
+  <option value = "UGRD">Undergraduate</option><option value = "GRAD">Graduate</option>
+</select>
+
+
