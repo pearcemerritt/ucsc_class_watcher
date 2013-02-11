@@ -1,1 +1,3 @@
 Consider adding img of "closed" from myUCSC site to index.html site description paragraph
+
+Add form validation messages informing user of what is wrong with the form

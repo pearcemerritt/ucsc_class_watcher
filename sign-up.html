@@ -89,6 +89,51 @@ Enter class watcher site
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
 
+<!-- below script to be later put into main.js or something -->
+<script>
+  $("form").bind(
+    "submit",
+    function() {
+
+      var nameElt = $('input[name=name]');
+      if (!nameElt) {
+        return false;
+      }
+      nameVal = nameElt.val();
+      if (!nameVal || (nameVal.trim().length < 1)) {
+        return false;
+      }
+
+      var emailElt = $('input[name=email]');
+      if (!emailElt) {
+        return false;
+      }
+      var emailVal = emailElt.val();
+      if (!emailVal || (emailVal.trim().length < 1)) {
+        return false;
+      }
+      if (!(/^\w+@ucsc.edu$/.test(emailVal.trim()))) {
+        return false;
+      }
+
+      var phoneElt = $('input[name=phone]');
+      if (!phoneElt) {
+        return false;
+      }
+      var phoneVal = phoneElt.val();
+      if (!phoneVal || (phoneVal.trim().length < 1)) {
+        return false;
+      }
+      if (!(/^.*\d\d\d.*\d\d\d.*\d\d\d\d.*$/.test(phoneVal.trim()))) {
+        return false;
+      }
+
+      console.debug('all input elts are valid :D');
+      return true;
+    }
+  );
+</script>
+
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
