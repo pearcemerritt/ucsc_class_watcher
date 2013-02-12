@@ -91,40 +91,78 @@ Enter class watcher site
 
 <!-- below script to be later put into main.js or something -->
 <script>
+  // @param elt an input element
+  // @return true if elt has non-empty value
+  //         false otherwise
+  function isInputValid(elt) {
+
+    if (!elt) {
+      return false;
+    }
+
+    inputVal = elt.val();
+    if (!inputVal || (inputVal.trim().length < 1)) {
+      return false;
+    }
+
+    return true;
+  }
+
+  $('input[name=name]').bind(
+    'change',
+    function() {
+      if (!isInputValid($(this))) {
+        alert('Please enter a name before continuing.');
+      }
+    }
+  );
+
+  $('input[name=email]').bind(
+    'change',
+    function() {
+      if (!isInputValid($(this))) {
+        alert('Please enter an email before continuing.');
+      }
+
+      var emailVal = $(this).val().trim();
+      if (!(/^\w+@ucsc.edu$/.test(emailVal))) {
+        alert('The email you have entered is not valid.\n\nPlease enter a valid ucsc email account (ending in @ucsc.edu).');
+      }
+    }
+  );
+
+  $('input[name=phone]').bind(
+    'change',
+    function() {
+      if (!isInputValid($(this))) {
+        alert('Please enter a phone number before continuing.');
+      }
+
+      var phoneVal = $(this).val().trim();
+      if (!(/^.*\d\d\d.*\d\d\d.*\d\d\d\d.*$/.test(phoneVal))) {
+        alert('The phone number you have entered is not valid.\n\nPlease enter a valid phone number with an area code (for example 831-555-5555).');
+      }
+    }
+  );
+
   $("form").bind(
     "submit",
     function() {
 
-      var nameElt = $('input[name=name]');
-      if (!nameElt) {
-        return false;
-      }
-      nameVal = nameElt.val();
-      if (!nameVal || (nameVal.trim().length < 1)) {
+      if ((!isInputValid( $('input[name=name]')  )) ||
+          (!isInputValid( $('input[name=email]') )) ||
+          (!isInputValid( $('input[name=phone]') ))) {
+
         return false;
       }
 
-      var emailElt = $('input[name=email]');
-      if (!emailElt) {
-        return false;
-      }
-      var emailVal = emailElt.val();
-      if (!emailVal || (emailVal.trim().length < 1)) {
-        return false;
-      }
-      if (!(/^\w+@ucsc.edu$/.test(emailVal.trim()))) {
+      var emailVal = $('input[name=email]').val().trim();
+      if (!(/^\w+@ucsc.edu$/.test(emailVal))) {
         return false;
       }
 
-      var phoneElt = $('input[name=phone]');
-      if (!phoneElt) {
-        return false;
-      }
-      var phoneVal = phoneElt.val();
-      if (!phoneVal || (phoneVal.trim().length < 1)) {
-        return false;
-      }
-      if (!(/^.*\d\d\d.*\d\d\d.*\d\d\d\d.*$/.test(phoneVal.trim()))) {
+      var phoneVal = $('input[name=phone]').val().trim();
+      if (!(/^.*\d\d\d.*\d\d\d.*\d\d\d\d.*$/.test(phoneVal))) {
         return false;
       }
 
