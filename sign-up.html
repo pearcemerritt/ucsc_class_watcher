@@ -75,7 +75,7 @@ Enter class watcher site
 
     <!-- Submit button goes here -->
     <div>
-      <button type="submit">Submit</button>
+      <button type="submit" disable="disable">Submit</button>
     </div>
 
   </form>
@@ -91,6 +91,7 @@ Enter class watcher site
 
 <!-- below script to be later put into main.js or something -->
 <script>
+
   // @param elt an input element
   // @return true if elt has non-empty value
   //         false otherwise
@@ -106,6 +107,18 @@ Enter class watcher site
     }
 
     return true;
+  }
+
+  // Makes submit click-able once all input elements have
+  // valid values.
+  function enableSubmitIfAllInputValid() {
+
+      if (isInputValid( $('input[name=name]')  ) &&
+          isInputValid( $('input[name=email]') ) &&
+          isInputValid( $('input[name=phone]') )) {
+
+        $('button[type=submit]').removeAttr('disabled');
+      }
   }
 
   $('input[name=name]').bind(
