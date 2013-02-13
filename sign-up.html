@@ -158,31 +158,6 @@ Enter class watcher site
     }
   );
 
-  $("form").bind(
-    "submit",
-    function() {
-
-      if ((!isInputValid( $('input[name=name]')  )) ||
-          (!isInputValid( $('input[name=email]') )) ||
-          (!isInputValid( $('input[name=phone]') ))) {
-
-        return false;
-      }
-
-      var emailVal = $('input[name=email]').val().trim();
-      if (!(/^\w+@ucsc.edu$/.test(emailVal))) {
-        return false;
-      }
-
-      var phoneVal = $('input[name=phone]').val().trim();
-      if (!(/^.*\d\d\d.*\d\d\d.*\d\d\d\d.*$/.test(phoneVal))) {
-        return false;
-      }
-
-      console.debug('all input elts are valid :D');
-      return true;
-    }
-  );
 </script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
