@@ -34,11 +34,17 @@ function isDeptValid() {
   return $('select[name=dept]').val() !== '';
 }
 
+// @return true if number is 5 digits long false otherwise
+function isNumValid() {
+
+  return $('input[name=num]').val().length === 5;
+}
+
 // Makes submit button click-able once all input elements have
 // valid values.
 function enableSubmitIfAllInputValid() {
 
-    if (isNameValid() && isEmailValid() && isPhoneValid()) {
+    if (isPhoneValid() && isDeptValid() && isNumValid()) {
 
       $('button[type=submit]').removeAttr('disabled');
     }
