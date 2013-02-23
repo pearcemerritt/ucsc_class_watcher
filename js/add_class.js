@@ -27,7 +27,7 @@ function isPhoneValid() {
   return /^.*\d\d\d.*\d\d\d.*\d\d\d\d.*$/.test(elt.val().trim());
 }
 
-// @return true if a dept has been chosen and false if the 
+// @return true if a department has been chosen and false if the 
 //         default of "" has been chosen
 function isDeptValid() {
 
@@ -40,14 +40,42 @@ function isNumValid() {
   return $('input[name=num]').val().length === 5;
 }
 
-// Makes submit button click-able once all input elements have
-// valid values.
-function enableSubmitIfAllInputValid() {
+// If enabled evaluates to true, make the form submit button enabled
+// (clickable), otherwise make it disabled (not clickable).
+// @param enabled used as a boolean to determine submit ability
+function setSubmitAbility(var enabled) {
 
-    if (isPhoneValid() && isDeptValid() && isNumValid()) {
+  var submitButton = $('button[type=submit]');
 
-      $('button[type=submit]').removeAttr('disabled');
+  // Ensure the submit button is enabled
+  if (enabled) {
+
+    // Enable submit button if it is currently disabled
+    // (otherwise it must alreday be enabled)
+    if (submitButton.attr('disabled')) {
+      submitButton.removeAttr('disabled');
     }
+  }
+  // Ensure the submit button is disabled
+  else {
+
+    // Disable submit button if it is currently enabled
+    // (otherwise if must already be disabled)
+    if (!submitButton.attr('disabled')) {
+      submitButton.attr('disabled', 'disabled');
+    }
+  }
+}
+
+// Makes submit button click-able once all input elements have
+// valid values and conversely disable the ability to click
+// the submit button if one of the fields has become invalid
+// where it was previously valid.
+function validateForSubmitAbility() {
+
+  var isFormValid = isPhoneValid() && isDeptValid() && isNumValid();
+
+  setSubmitAbility(isFormValid);
 }
 
 // @return an htmlString for a span with hintText as the text
@@ -77,7 +105,61 @@ $('input[name=phone]').bind(
       if ($(this).next('span').length == 1) {
         $(this).next('span').remove();
       }
-      enableSubmitIfAllInputValid();
+      validateForSubmitAbility();
+    }
+  }
+);
+
+// Any time the dept drop-down menu in the form changes validate it
+$('select[name=dept]').bind(
+  'change',
+  function() {
+
+    // If validation fails on department menu, post a hint
+    if (!isDeptValid()) {
+
+      // If hint not already present add one
+      if ($(this).next('span').length == 0) {
+        var hint = 'Please select a department before continuing.';
+        $(this).after(generateValidationHintSpan(hint));
+      }
+    }
+    // Otherwise remove the hint and check to see if the whole
+    // form is validated and the submit button can be enabled
+    else {
+
+      // Remove previously added field hint since field now valid
+      if ($(this).next('span').length == 1) {
+        $(this).next('span').remove();
+      }
+      validateForSubmitAbility();
+    }
+  }
+);
+
+// Any time the class number field in the form changes validate it
+$('input[name=num]').bind(
+  'change',
+  function() {
+
+    // If validation fails on class number field, post a hint
+    if (!isNumValid()) {
+
+      // If hint not already present add one
+      if ($(this).next('span').length == 0) {
+        var hint = 'Please enter a class number before continuing (this number is 5 digits and is labeled "Class #" on myUCSC).';
+        $(this).after(generateValidationHintSpan(hint));
+      }
+    }
+    // Otherwise remove the hint and check to see if the whole
+    // form is validated and the submit button can be enabled
+    else {
+
+      // Remove previously added field hint since field now valid
+      if ($(this).next('span').length == 1) {
+        $(this).next('span').remove();
+      }
+      validateForSubmitAbility();
     }
   }
 );
