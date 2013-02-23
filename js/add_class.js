@@ -43,7 +43,7 @@ function isNumValid() {
 // If enabled evaluates to true, make the form submit button enabled
 // (clickable), otherwise make it disabled (not clickable).
 // @param enabled used as a boolean to determine submit ability
-function setSubmitAbility(var enabled) {
+function setSubmitAbility(enabled) {
 
   var submitButton = $('button[type=submit]');
 
@@ -89,6 +89,7 @@ $('input[name=phone]').bind(
   function() {
 
     // If validation fails on phone field, post a hint
+    // and ensure the submit button is disabled
     if (!isPhoneValid()) {
 
       // If hint not already present add one
@@ -96,6 +97,7 @@ $('input[name=phone]').bind(
         var hint = 'Please enter a phone number with an area code before continuing (for example 831-555-5555).';
         $(this).after(generateValidationHintSpan(hint));
       }
+      setSubmitAbility(false);
     }
     // Otherwise remove the hint and check to see if the whole
     // form is validated and the submit button can be enabled
@@ -116,6 +118,7 @@ $('select[name=dept]').bind(
   function() {
 
     // If validation fails on department menu, post a hint
+    // and ensure the submit button is disabled
     if (!isDeptValid()) {
 
       // If hint not already present add one
@@ -123,6 +126,7 @@ $('select[name=dept]').bind(
         var hint = 'Please select a department before continuing.';
         $(this).after(generateValidationHintSpan(hint));
       }
+      setSubmitAbility(false);
     }
     // Otherwise remove the hint and check to see if the whole
     // form is validated and the submit button can be enabled
@@ -143,6 +147,7 @@ $('input[name=num]').bind(
   function() {
 
     // If validation fails on class number field, post a hint
+    // and ensure the submit button is disabled
     if (!isNumValid()) {
 
       // If hint not already present add one
@@ -150,6 +155,7 @@ $('input[name=num]').bind(
         var hint = 'Please enter a class number before continuing (this number is 5 digits and is labeled "Class #" on myUCSC).';
         $(this).after(generateValidationHintSpan(hint));
       }
+      setSubmitAbility(false);
     }
     // Otherwise remove the hint and check to see if the whole
     // form is validated and the submit button can be enabled
