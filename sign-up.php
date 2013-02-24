@@ -25,21 +25,14 @@
 <!-- end HTML5 boilerplate starter code =========================================-->
 <!--=============================================================================-->
 
-  <form action="update.php" method="get">
-  <form>
+  <h1>UCSC Class Watcher</h1>
 
-  <div>
-
-    <h1>UCSC Class Watcher</h1>
-
-    <p>
+  <p>
 Thank you <?php echo $_GET["name"] ?>. <br/>
 We will send a confirmation email to you within 72 hours with further instructions. <br/>
 <br/>
 -- UCSC Class Watcher
-    </p>
-
-  </div>
+  </p>
 
 <!--===============================================================================-->
 <!-- start HTML5 boilerplate starter code =========================================-->
