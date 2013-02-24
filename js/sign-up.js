@@ -46,14 +46,41 @@ function isPhoneValid() {
   return /^.*\d\d\d.*\d\d\d.*\d\d\d\d.*$/.test(elt.val().trim());
 }
 
-// Makes submit button click-able once all input elements have
-// valid values.
-function enableSubmitIfAllInputValid() {
+// If enabled evaluates to true, make the form submit button enabled
+// (clickable), otherwise make it disabled (not clickable).
+// @param enabled used as a boolean to determine submit ability
+function setSubmitAbility(enabled) {
 
-    if (isNameValid() && isEmailValid() && isPhoneValid()) {
+  var submitButton = $('button[type=submit]');
 
-      $('button[type=submit]').removeAttr('disabled');
+  // Ensure the submit button is enabled
+  if (enabled) {
+
+    // Enable submit button if it is currently disabled
+    // (otherwise it must alreday be enabled)
+    if (submitButton.attr('disabled')) {
+      submitButton.removeAttr('disabled');
     }
+  }
+  // Ensure the submit button is disabled
+  else {
+
+    // Disable submit button if it is currently enabled
+    // (otherwise if must already be disabled)
+    if (!submitButton.attr('disabled')) {
+      submitButton.attr('disabled', 'disabled');
+    }
+  }
+}
+
+// Makes submit button click-able once all input elements have
+// valid values and conversely disable the ability to click
+// the submit button if one of the fields has become invalid
+// where it was previously valid.
+function validateForSubmitAbility() {
+
+  var isFormValid = isNameValid() && isEmailValid() && isPhoneValid();
+  setSubmitAbility(isFormValid);
 }
 
 // @return an htmlString for a span with hintText as the text
@@ -67,6 +94,7 @@ $('input[name=name]').bind(
   function() {
 
     // If validation fails on name field, post a hint
+    // and ensure the submit button is disabled
     if (!isNameValid()) {
 
       // If hint not already present add one
@@ -74,6 +102,7 @@ $('input[name=name]').bind(
         var hint = 'Please enter a name before continuing.';
         $(this).after(generateValidationHintSpan(hint));
       }
+      setSubmitAbility(false);
     }
     // Otherwise remove the hint and check to see if the whole
     // form is validated and the submit button can be enabled
@@ -83,7 +112,7 @@ $('input[name=name]').bind(
       if ($(this).next('span')) {
         $(this).next('span').remove();
       }
-      enableSubmitIfAllInputValid();
+      validateForSubmitAbility();
     }
   }
 );
@@ -94,6 +123,7 @@ $('input[name=email]').bind(
   function() {
 
     // If validation fails on email field, post a hint
+    // and ensure the submit button is disabled
     if (!isEmailValid()) {
 
       // If hint not already present add one
@@ -101,6 +131,7 @@ $('input[name=email]').bind(
         var hint = 'Please enter a ucsc email (ending in @ucsc.edu) before continuing.';
         $(this).after(generateValidationHintSpan(hint));
       }
+      setSubmitAbility(false);
     }
     // Otherwise remove the hint and check to see if the whole
     // form is validated and the submit button can be enabled
@@ -110,7 +141,7 @@ $('input[name=email]').bind(
       if ($(this).next('span')) {
         $(this).next('span').remove();
       }
-      enableSubmitIfAllInputValid();
+      validateForSubmitAbility();
     }
   }
 );
@@ -121,6 +152,7 @@ $('input[name=phone]').bind(
   function() {
 
     // If validation fails on phone field, post a hint
+    // and ensure the submit button is disabled
     if (!isPhoneValid()) {
 
       // If hint not already present add one
@@ -128,6 +160,7 @@ $('input[name=phone]').bind(
         var hint = 'Please enter a phone number with an area code before continuing (for example 831-555-5555).';
         $(this).after(generateValidationHintSpan(hint));
       }
+      setSubmitAbility(false);
     }
     // Otherwise remove the hint and check to see if the whole
     // form is validated and the submit button can be enabled
@@ -137,7 +170,7 @@ $('input[name=phone]').bind(
       if ($(this).next('span').length == 1) {
         $(this).next('span').remove();
       }
-      enableSubmitIfAllInputValid();
+      validateForSubmitAbility();
     }
   }
 );

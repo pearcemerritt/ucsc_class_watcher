@@ -2,4 +2,3 @@ Consider adding img of "closed" from myUCSC site to index.html site description 
 
 Make sure also texts when "wait" status opens up as well as "open"
 
-Refactor setSubmitAbility functionality into js/sign-up.js
