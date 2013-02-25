@@ -25,6 +25,19 @@
 <!-- end HTML5 boilerplate starter code =========================================-->
 <!--=============================================================================-->
 
+<?php
+  $filename = preg_replace('/\D/', '', $_GET["phone"]);
+  $filename .= '.class_list';
+  echo '<h1 style="color:red;">PHP file output!!!!</h1>';
+  echo '<p>This is num from regexreplace: ' . $filename . '</p>';
+
+  $file = fopen('class_lists/' . $filename, 'a');
+  $num_bytes = fwrite($file, 'new line\r\n');
+  $num_bytes = fwrite($file, 'other new line');
+  
+  echo 'number of bytes written: ' . $num_bytes;
+?>
+
   <h1>UCSC Class Watcher</h1>
 
   <p>
