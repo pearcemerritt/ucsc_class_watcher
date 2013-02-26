@@ -31,8 +31,12 @@
   $filename = preg_replace('/\D/', '', $_GET["phone"]);
   $filename = 'class_lists/' . $filename . '.class_list';
 
-  echo '<h1 style="color:red;">PHP file output!!!!</h1>';
-  echo '<p>This is the filename we\'re about to write to: ' . $filename . '</p>';
+  if (file_exists($filename)) {
+    exit('You have already registered and may not re-register');
+  }
+
+  // echo '<h1 style="color:red;">PHP file output!!!!</h1>';
+  // echo '<p>This is the filename we\'re about to write to: ' . $filename . '</p>';
 
   $file = fopen($filename, 'a');
 
@@ -40,7 +44,7 @@
   $num_bytes = fwrite($file, $_GET["email"] . "\n");
   $num_bytes = fwrite($file, $_GET["ref"] . "\n");
   
-  echo 'number of bytes written: ' . $num_bytes;
+  // echo 'number of bytes written: ' . $num_bytes;
 
   fclose($file);
 ?>
