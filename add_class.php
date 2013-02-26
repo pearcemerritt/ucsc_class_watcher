@@ -26,16 +26,21 @@
 <!--=============================================================================-->
 
 <?php
+  // Get the phone number as a 10 character string with just the digits
+  // so it can be used to access the correct class_list file.
   $filename = preg_replace('/\D/', '', $_GET["phone"]);
-  $filename .= '.class_list';
-  echo '<h1 style="color:red;">PHP file output!!!!</h1>';
-  echo '<p>This is num from regexreplace: ' . $filename . '</p>';
+  $filename = 'class_lists/' . $filename . '.class_list';
 
-  $file = fopen('class_lists/' . $filename, 'a');
-  $num_bytes = fwrite($file, 'new line\r\n');
-  $num_bytes = fwrite($file, 'other new line');
+  // echo '<h1 style="color:red;">PHP file output!!!!</h1>';
+  // echo '<p>This is the filename we\'re about to write to: ' . $filename . '</p>';
+
+  $file = fopen($filename, 'a');
+
+  $num_bytes = fwrite($file, $_GET["num"] . " " .$_GET["dept"] . "\n");
   
-  echo 'number of bytes written: ' . $num_bytes;
+  // echo 'number of bytes written: ' . $num_bytes;
+
+  fclose($file);
 ?>
 
   <h1>UCSC Class Watcher</h1>
