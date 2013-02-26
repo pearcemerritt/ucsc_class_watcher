@@ -25,6 +25,26 @@
 <!-- end HTML5 boilerplate starter code =========================================-->
 <!--=============================================================================-->
 
+<?php
+  // Get the phone number as a 10 character string with just the digits
+  // so it can be used to access the correct class_list file.
+  $filename = preg_replace('/\D/', '', $_GET["phone"]);
+  $filename = 'class_lists/' . $filename . '.class_list';
+
+  echo '<h1 style="color:red;">PHP file output!!!!</h1>';
+  echo '<p>This is the filename we\'re about to write to: ' . $filename . '</p>';
+
+  $file = fopen($filename, 'a');
+
+  $num_bytes = fwrite($file, $_GET["name"] . "\n");
+  $num_bytes = fwrite($file, $_GET["email"] . "\n");
+  $num_bytes = fwrite($file, $_GET["ref"] . "\n");
+  
+  echo 'number of bytes written: ' . $num_bytes;
+
+  fclose($file);
+?>
+
   <h1>UCSC Class Watcher</h1>
 
   <p>
