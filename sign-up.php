@@ -32,21 +32,31 @@
   $filename = 'class_lists/' . $filename . '.class_list';
 
   if (file_exists($filename)) {
-    exit('You have already registered and may not re-register');
+    // exit('You have already registered and may not re-register');
   }
 
   // echo '<h1 style="color:red;">PHP file output!!!!</h1>';
-  // echo '<p>This is the filename we\'re about to write to: ' . $filename . '</p>';
 
   $file = fopen($filename, 'a');
 
-  $num_bytes = fwrite($file, $_GET["name"] . "\n");
-  $num_bytes = fwrite($file, $_GET["email"] . "\n");
-  $num_bytes = fwrite($file, $_GET["ref"] . "\n");
+  fwrite($file, $_GET["name"] . "\n");
+  fwrite($file, $_GET["email"] . "\n");
+  fwrite($file, $_GET["ref"] . "\n");
   
-  // echo 'number of bytes written: ' . $num_bytes;
-
   fclose($file);
+
+  $to = 'pearcemerritt@gmail.com';
+  $subj = 'ucsc class watcher sign up';
+  $msg = 'Name: ' . $_GET["name"] . "\r\n";
+  $msg .= 'Email: ' . $_GET["email"] . "\r\n";
+  $msg .= 'Referred by: ' . $_GET["ref"] . "\r\n";
+  $hdr = "From: pearcemerritt@gmail.com\r\n";
+  $hdr = "Reply-To: pearcemerritt@gmail.com\r\n";
+  $hdr .= "X-Mailer: PHP/" . phpversion();
+  $mail_params = "-f ucsc_class_watcher";
+
+  mail($to, $subj, $msg, $hdr, $mail_params);
+  // mail($to, $subj, $msg, $hdr);
 ?>
 
   <h1>UCSC Class Watcher</h1>
