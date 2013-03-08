@@ -21,9 +21,9 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-<!--=============================================================================-->
-<!-- end HTML5 boilerplate starter code =========================================-->
-<!--=============================================================================-->
+<!--===============================================================================-->
+<!-- start HTML5 boilerplate starter code =========================================-->
+<!--===============================================================================-->
 
 <?php
   // Get the phone number as a 10 character string with just the digits
@@ -49,9 +49,9 @@
 You successfully added <?php echo $_GET["num"] ?> to your class watch list.
   </p>
 
-<!--===============================================================================-->
-<!-- start HTML5 boilerplate starter code =========================================-->
-<!--===============================================================================-->
+<!--=============================================================================-->
+<!-- end HTML5 boilerplate starter code =========================================-->
+<!--=============================================================================-->
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>

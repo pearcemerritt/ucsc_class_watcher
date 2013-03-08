@@ -2,3 +2,8 @@ Consider adding img of "closed" from myUCSC site to index.html site description 
 
 Make sure also texts when "wait" status opens up as well as "open"
 
+Make parser determine if the class is open, waitlisted, or closed. Used to have this functionality, but forgot to add it in expand to search by class number
+
+Also, follow link to get the full name of the class for continuity
+
+Write JavaScript for add_class.html that will do ajax and get the full name of the class so the form is more interactive, i.e. asking if this is the class you meant with the entire time breakdown and full class title and everything. use jQuery and $.ajax
