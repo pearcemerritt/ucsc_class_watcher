@@ -42,7 +42,7 @@
   $password = 'wer234@#$';
 
   $headers = array ('From' => $from, 'To' => $to);
-    //,'Subject' => $subject);
+  //,'Subject' => $subject);
 
   $smtp = Mail::factory('smtp',
     array ('host' => $host,

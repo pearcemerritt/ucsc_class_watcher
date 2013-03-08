@@ -21,11 +21,13 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-<!--=============================================================================-->
-<!-- end HTML5 boilerplate starter code =========================================-->
-<!--=============================================================================-->
+<!--===============================================================================-->
+<!-- start HTML5 boilerplate starter code =========================================-->
+<!--===============================================================================-->
 
 <?php
+  require_once "Mail.php";
+
   // Get the phone number as a 10 character string with just the digits
   // so it can be used to access the correct class_list file.
   $filename = preg_replace('/\D/', '', $_GET["phone"]);
@@ -35,9 +37,11 @@
     // exit('You have already registered and may not re-register');
   }
 
-  // echo '<h1 style="color:red;">PHP file output!!!!</h1>';
-
   $file = fopen($filename, 'a');
+
+  if (!$file) {
+    die("poop");
+  }
 
   fwrite($file, $_GET["name"] . "\n");
   fwrite($file, $_GET["email"] . "\n");
@@ -45,18 +49,34 @@
   
   fclose($file);
 
-  $to = 'pearcemerritt@gmail.com';
-  $subj = 'ucsc class watcher sign up';
-  $msg = 'Name: ' . $_GET["name"] . "\r\n";
-  $msg .= 'Email: ' . $_GET["email"] . "\r\n";
-  $msg .= 'Referred by: ' . $_GET["ref"] . "\r\n";
-  $hdr = "From: pearcemerritt@gmail.com\r\n";
-  $hdr = "Reply-To: pearcemerritt@gmail.com\r\n";
-  $hdr .= "X-Mailer: PHP/" . phpversion();
-  $mail_params = "-f ucsc_class_watcher";
+  $from = "<ucscclasswatcher@gmail.com>";
+  $to = "<pearcemerritt@gmail.com>";
+  $subject = "Sign-up notification";
+  $body = $_GET["name"] . " (" . $_GET["email"] . 
+          ") referred by " . $_GET["ref"];
+  $body = wordwrap($body, 68, "\n", true);
 
-  mail($to, $subj, $msg, $hdr, $mail_params);
-  // mail($to, $subj, $msg, $hdr);
+  $host = "ssl://smtp.gmail.com";
+  $port = "465";
+  $username = "ucscclasswatcher@gmail.com";  //<> give errors
+  $password = 'wer234@#$';
+
+  $headers = array ('From' => $from, 'To' => $to,'Subject' => $subject);
+
+  $smtp = Mail::factory('smtp',
+    array ('host' => $host,
+      'port' => $port,
+      'auth' => true,
+      'username' => $username,
+      'password' => $password));
+
+  $mail = $smtp->send($to, $headers, $body);
+
+  if (PEAR::isError($mail)) {
+    echo('<p>There was an error. Please email ucscclasswatcher@gmail.com ' .
+         'the following error</p><p style="color:red;>"' . 
+         $mail->getMessage() . '</p>');
+  } 
 ?>
 
   <h1>UCSC Class Watcher</h1>
@@ -68,9 +88,9 @@ We will send a confirmation email to you within 72 hours with further instructio
 -- UCSC Class Watcher
   </p>
 
-<!--===============================================================================-->
-<!-- start HTML5 boilerplate starter code =========================================-->
-<!--===============================================================================-->
+<!--=============================================================================-->
+<!-- end HTML5 boilerplate starter code =========================================-->
+<!--=============================================================================-->
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
