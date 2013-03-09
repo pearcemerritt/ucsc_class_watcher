@@ -28,15 +28,15 @@ public class UcscClassScheduleParse {
 	 * Usage:
 	 * args[0] class number of watch class (5 digit unique id)
 	 * args[1] department watch class is in (4 letter abbreviation code)
-	 * args[2] school term to watch class (4 digit even number)
 	 */
 	public static void main(String[] args) throws Exception {
 		
 		String classNumberArg = args[0];
 		String deptArg = args[1];
-		String termArg = args[2];
 		
-		InputStream htmlStream = getDeptClassesHTML(deptArg, termArg);
+		final String term = "2132"; // Spring 2013
+		
+		InputStream htmlStream = getDeptClassesHTML(deptArg, term);
 
 		Document responseDom = parseHTML(htmlStream);
 
@@ -58,7 +58,6 @@ public class UcscClassScheduleParse {
 										 .getFirstChild() // a node
 										 .getFirstChild() // link text node
 										 .getNodeValue(); // text node text
-			System.out.println(classNumber);
 			
 			// If this row is the class we're looking for, save it and bail
 			if (classNumber.equals(classNumberArg)) {
@@ -94,7 +93,7 @@ public class UcscClassScheduleParse {
 		String classTitle = colNodes.item(2).getFirstChild().getFirstChild().getNodeValue();
 		System.out.println(classTitle);
 		
-		// Get the status of the class (i.e. Closed, Wait, Open)
+		// Get the status of the class (i.e. Closed, Wait List, Open)
 		// Looks like <td><center><img alt="status" .../></center></td>
 		String classStatus = colNodes.item(7).getFirstChild().getFirstChild()
 									 .getAttributes().getNamedItem("alt").getNodeValue();
