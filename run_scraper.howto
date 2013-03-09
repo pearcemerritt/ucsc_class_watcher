@@ -1,0 +1,5 @@
+# be in java/scraper/bin/ then run this and replace the last 2 args with real
+# class number and dept.
+
+java -classpath ../jtidy-r938.jar:. pearcemerritt.UcscClassScheduleParse 62020 AMST
+
